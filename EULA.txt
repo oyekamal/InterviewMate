@@ -1,0 +1,44 @@
+End-User License Agreement (EULA) for Parental Monitor (MVP)
+
+**IMPORTANT: PLEASE READ CAREFULLY.**
+
+This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and the developers of Parental Monitor ("the Software") for the software product identified above.
+
+By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this EULA. If you do not agree to the terms of this EULA, do not install or use the Software.
+
+**1. MVP Scope and Limitations:**
+   The Software is a Minimum Viable Product (MVP). It is provided "AS IS" without warranties of any kind. Its features are limited to those described in the project documentation (e.g., README.md, specification document).
+
+**2. Grant of License (for Monitoring Minor Children):**
+   The Software is intended solely for the purpose of monitoring computer activity of minor children for whom you are the parent or legal guardian.
+   By using this Software, you represent and warrant that:
+   a. You are the parent or legal guardian of any minor child whose computer activity you intend to monitor using this Software.
+   b. You will use this Software in compliance with all applicable local, state, national, and international laws and regulations regarding the monitoring of minors and computer usage.
+   c. You acknowledge that unauthorized monitoring of individuals may violate privacy laws and other legal statutes.
+
+**3. Consent Mechanism (MVP):**
+   To activate the monitoring functionalities of this Software, you must explicitly set the `eula_accepted` flag to `true` in the `config.yaml` file. This action signifies your understanding and acceptance of the terms outlined in this EULA, including your confirmation that you are monitoring your own minor child.
+
+**4. Data Storage and Security (MVP):**
+   a. The Software stores captured data (keywords, screenshots) locally on the computer where it is installed.
+   b. This data is encrypted using AES-256. An `encryption.key` file is generated and stored locally. You are solely responsible for the security and backup of this `encryption.key` file. Loss of this key will result in irreversible loss of access to the logged data.
+   c. No data is transmitted externally by the Software in its MVP form.
+
+**5. Restrictions:**
+   You may not:
+   a. Use the Software for any illegal purpose or to monitor any individual for whom you do not have legal authority to monitor (e.g., spouse, employee, or any adult without their explicit, informed consent, which is outside the intended scope of this software for monitoring minor children).
+   b. Reverse engineer, decompile, or disassemble the Software, except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation.
+   c. Rent, lease, or lend the Software.
+
+**6. Disclaimer of Warranty:**
+   THE SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.
+
+**7. Limitation of Liability:**
+   IN NO EVENT SHALL THE DEVELOPERS OF THE SOFTWARE BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF DATA, OR OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF THE DEVELOPERS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+**8. Governing Law:**
+   This EULA shall be governed by the laws of the jurisdiction in which the software developer resides, without regard to its conflict of law principles.
+
+**By setting `eula_accepted: true` in `config.yaml`, you acknowledge that you have read this EULA, understand it, and agree to be bound by its terms and conditions.**
+
+If you have any questions concerning this EULA, or if you desire to contact the developers for any reason, please refer to the project documentation for contact information (if available).

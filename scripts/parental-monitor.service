@@ -1,0 +1,46 @@
+[Unit]
+Description=Parental Monitor Service
+After=network.target display-manager.service # Ensure network and display server (if GUI interaction needed) are up
+
+[Service]
+Type=simple
+# User and Group the service should run as.
+# For system-wide installation, this might be a dedicated user.
+# For user-specific service, it would be the user installing it.
+# User=your_user # Replace with the appropriate user if needed
+# Group=your_group # Replace with the appropriate group if needed
+
+# Path to the main Python script or executable
+# This will need to be updated by the installer based on the actual installation path.
+# Example if installed in /opt/parental-monitor and using a virtualenv:
+# ExecStart=/opt/parental-monitor/venv/bin/python /opt/parental-monitor/main.py
+# Example if using a PyInstaller bundle:
+ExecStart=/opt/parental-monitor/parental_monitor_main # Assuming main executable after PyInstaller build
+
+# Working directory for the service
+WorkingDirectory=/opt/parental-monitor # Or wherever the application is installed
+
+# Environment variables
+# Crucial for GUI applications or tools that need X11 access (like pynput, scrot)
+# This might need to be dynamically determined or configured.
+# Common for user's primary display:
+Environment="DISPLAY=:0"
+# For Wayland, other variables or approaches might be needed if tools don't use XWayland.
+# Environment="XDG_RUNTIME_DIR=/run/user/$(id -u)" # May be needed for some tools
+
+# Restart behavior
+Restart=always
+RestartSec=5
+
+# Standard output and error logging
+# By default, these go to journald (view with journalctl -u parental-monitor.service)
+StandardOutput=journal
+StandardError=journal
+
+# Optional: If your application manages its own PID file
+# PIDFile=/run/parental-monitor/parental-monitor.pid
+
+[Install]
+WantedBy=multi-user.target # Start at multi-user graphical session (common for desktop apps)
+# Or, if it should run even without a GUI session (though keystroke/screenshot might fail):
+# WantedBy=default.target
