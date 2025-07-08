@@ -1,0 +1,31 @@
+# Core Application Dependencies
+PyYAML>=5.0 # For config.yaml parsing
+cryptography>=3.0 # For AES encryption
+pynput>=1.7.0 # For keystroke capture (cross-platform)
+Pillow>=8.0 # For screenshots (primarily Windows, but also a pyscreenshot backend)
+psutil>=5.0 # For process information (e.g., active application name)
+
+# Windows-specific (pynput and Pillow might need these, or for service)
+pywin32>=300; sys_platform == 'win32' # For Windows Service management, and some pynput/Pillow features
+pygetwindow>=0.0.9; sys_platform == 'win32' # For getting active window title on Windows
+
+# Linux-specific (pyscreenshot is a wrapper, actual tools might be CLI)
+# pyscreenshot>=3.0; sys_platform == 'linux' # Wrapper for various screenshot backends on Linux
+# Note: For Linux, `xdotool`, `xprop`, `scrot`, `gnome-screenshot` are often external CLI tools.
+# Installers would need to list these as dependencies of the .deb package or check for them.
+# pyscreenshot itself might pull in specific Xlib bindings or other Python packages.
+# Adding it here ensures pip attempts to install it and its Python deps on Linux.
+# If a specific pyscreenshot backend is preferred (e.g., Pillow), it might already be covered.
+# For now, let's keep pyscreenshot commented out, as LinuxScreenshotCapture tries multiple backends
+# including direct CLI calls, and Pillow is already a requirement.
+# If pyscreenshot is to be the primary Python lib for Linux screenshots, uncomment it.
+# pyscreenshot; sys_platform == 'linux'
+
+# Packaging & Installer Tools (development dependencies, not for runtime unless bundled)
+# PyInstaller>=4.0 # For bundling the application into an executable
+# For Windows Installer (MSI/EXE):
+# Inno Setup (external tool)
+# NSIS (external tool)
+# For Linux Installer (DEB/RPM):
+# fpm (external tool)
+# dh-python / stdeb (for DEB packaging)

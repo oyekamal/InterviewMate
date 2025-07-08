@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+VENV/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are created by a PyInstaller build and placed in `dist/`
+#  but explicit listing here can be useful if builds are experimented with outside `dist/`
+*.spec
+*.pyzw
+*.pyz
+*.manifest
+*.pyd
+*.dll
+*.so
+*.exe # If not versioned intentionally
+
+# Logs and data files (specific to this project)
+ParentalMonitorData/ # Default log directory
+TestData/ # General test data directory if used by main code/scripts
+TestData_* # For specific test outputs like TestData_ScreenshotScheduler
+
+# Encryption keys - CRITICAL: DO NOT COMMIT KEYS
+*.key
+encryption.key # Default key name
+test_encryption.key # Example test key name
+test_logger_encryption.key
+test_utils_encryption.key
+
+
+# Configuration files (if local, unversioned copies are made)
+# config.yaml # If a user creates this from config.yaml.example, they shouldn't commit their version
+# test_config.yaml # Example test config name
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Test output files (if any are generated outside standard test runners)
+test_windows_screenshot.png
+test_linux_screenshot.png
+decrypted_test_image.png # From logger test
+
+# Coverage reports
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/

@@ -1,0 +1,70 @@
+# Parental Monitor Configuration File Example
+# Copy this file to config.yaml and modify as needed.
+# The application will look for config.yaml in the following order:
+# 1. Current working directory.
+# 2. Directory of the main application script/executable.
+# 3. System-specific installation directory:
+#    - Windows: %ProgramFiles%/ParentalMonitor/config.yaml
+#    - Linux: /opt/parental-monitor/config.yaml
+
+# Interval in minutes for taking screenshots
+screenshot_interval_minutes: 5
+
+# Directory where daily logs and screenshots will be stored.
+# Can be an absolute path (e.g., C:/Users/YourUser/ParentalMonitorData or /home/youruser/ParentalMonitorData)
+# Or a relative path (e.g., MyLogs). If relative, it's usually relative to:
+#   - the directory containing config.yaml if config_file_path is known by the logger,
+#   - or the current working directory of the application if config_file_path is not available.
+# It's generally recommended to use an absolute path for services.
+log_directory: "ParentalMonitorData" # Default: creates ParentalMonitorData in app's relative context
+
+# Path to the file that will store the AES encryption key.
+# IMPORTANT: Protect this key file. If lost, data cannot be decrypted.
+# If relative, path is resolved similarly to log_directory (often relative to config.yaml's location).
+# It is recommended to keep this key file OUTSIDE the log_directory.
+encryption_key_file: "encryption.key" # Default: creates encryption.key near config or app
+
+# Filters for keyword logging
+keyword_filters:
+  # List of process names (without .exe) to monitor.
+  # If empty or not specified, all processes where typing is detected might be logged (platform permitting).
+  # Example: ["chrome", "firefox", "slack", "notepad", "wordpad", "msedge", "brave"]
+  include_processes:
+    - "chrome"
+    - "firefox"
+    - "msedge" # Microsoft Edge
+    - "brave"
+    - "opera"
+    - "safari" # If applicable on the OS
+    - "slack"
+    - "discord"
+    - "notepad"
+    # Add more browser names, chat applications, document editors etc.
+    # For Linux, process names are usually lowercase, e.g., "gedit", "gnome-terminal"
+
+  # List of words to exclude from logging (case-insensitive).
+  # Useful for preventing logging of passwords or sensitive phrases.
+  exclude_words:
+    - "password"
+    - "secret"
+    - "pswd"
+    - "mysecretkey"
+    # Add any other words or phrases you want to explicitly ignore.
+
+# EULA acceptance status.
+# For the MVP, this might be manually set to true by the parent after reading terms.
+# In a more complete version, the application's first run would prompt for this.
+# Setting this to `true` implies consent to monitoring according to terms.
+eula_accepted: false # Change to true to enable monitoring after reviewing terms.
+
+# --- Advanced / Future Settings (Not all may be used in MVP) ---
+# Minimum length for a word to be logged (e.g., ignore "a", "to")
+# min_word_length: 3
+
+# Timeout in seconds to flush buffered keystrokes if no new key is pressed.
+# This helps capture words even if the user pauses typing without a delimiter.
+# keystroke_buffer_timeout: 5
+
+# Disk space management (example, not implemented in current MVP logger)
+# stop_logging_if_disk_space_less_than_gb: 5
+# delete_logs_older_than_days: 30
